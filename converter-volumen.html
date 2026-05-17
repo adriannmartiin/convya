@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conversor de Volumen — Litros, Galones, ml, Tazas, Onzas | ConvYa</title>
+  <meta name="description" content="Conversor de volumen gratuito. Convierte litros, mililitros, galones, pintas, tazas y onzas líquidas al instante. Para recetas y viajes.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convya.org/converter-volumen">
+  <meta property="og:title" content="Conversor de Volumen | ConvYa">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://convya.org/og-image.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="style.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="/" class="logo">Conv<span style="color:var(--brand)">Ya</span><span class="logo-dot">.</span></a>
+    <nav id="main-nav">
+      <a href="/converter-cocina.html">🍳 Cocina</a>
+      <a href="/converter-peso.html">⚖️ Peso</a>
+      <a href="/converter-longitud.html">📏 Longitud</a>
+      <a href="/converter-temperatura.html">🌡️ Temperatura</a>
+      <a href="/converter-volumen.html" class="active">💧 Volumen</a>
+      <a href="/converter-area.html">📐 Área</a>
+      <a href="/converter-velocidad.html">⚡ Velocidad</a>
+      <a href="/converter-tiempo.html">⏱️ Tiempo</a>
+      <a href="/converter-digital.html">💾 Digital</a>
+      <a href="/converter-numeros.html">🔢 Números</a>
+    </nav>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</header>
+<main class="page-wrap">
+  <section class="page-hero">
+    <div class="breadcrumb"><a href="/">Inicio</a><span>›</span>Volumen y Capacidad</div>
+    <div class="tool-badge">💧 Conversor de volumen</div>
+    <h1 class="tool-title">Conversor de <em>Volumen</em> y Capacidad</h1>
+    <p class="tool-subtitle">Convierte litros, mililitros, galones, pintas, tazas y onzas líquidas al instante. Perfecto para recetas americanas y viajes.</p>
+  </section>
+  <div class="ad-slot"><!-- AdSense --></div>
+  <div class="conv-card">
+    <div class="conv-row">
+      <div class="conv-input-group">
+        <label>Valor</label>
+        <input type="number" id="val-from" placeholder="1" min="0" oninput="doConv('from')">
+        <select id="unit-from" onchange="doConv('from')" style="margin-top:6px"><option value="l" selected>Litros (l)</option><option value="ml">Mililitros (ml)</option><option value="m3">Metros cúbicos (m³)</option><option value="gal_us">Galón US (gal)</option><option value="gal_uk">Galón imperial (UK)</option><option value="pt_us">Pinta US (pt)</option><option value="cup">Taza (240ml)</option><option value="fl_oz">Onza líquida US (fl oz)</option><option value="tbsp">Cucharada (15ml)</option><option value="tsp">Cucharadita (5ml)</option></select>
+      </div>
+      <button class="swap-btn" onclick="swapUnits()">↕</button>
+      <div class="conv-input-group">
+        <label>Resultado</label>
+        <input type="number" id="val-to" placeholder="—" min="0" oninput="doConv('to')">
+        <select id="unit-to" onchange="doConv('from')" style="margin-top:6px"><option value="l">Litros (l)</option><option value="ml">Mililitros (ml)</option><option value="m3">Metros cúbicos (m³)</option><option value="gal_us" selected>Galón US (gal)</option><option value="gal_uk">Galón imperial (UK)</option><option value="pt_us">Pinta US (pt)</option><option value="cup">Taza (240ml)</option><option value="fl_oz">Onza líquida US (fl oz)</option><option value="tbsp">Cucharada (15ml)</option><option value="tsp">Cucharadita (5ml)</option></select>
+      </div>
+    </div>
+    <div class="action-row">
+      <button class="btn-copy" onclick="copyResult()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>Copiar resultado</button>
+      <button class="btn-link" onclick="copyLink()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>Copiar enlace</button>
+    </div>
+    <div class="all-equiv"><p class="equiv-title">Todas las equivalencias</p><div class="equiv-grid" id="equiv-grid"></div></div>
+    <div class="ref-table-wrap"><h3>Tabla de referencia</h3><table class="ref-table" id="ref-table"></table></div>
+  </div>
+  <div class="ad-slot"><!-- AdSense --></div>
+  <section class="guide-section"><h2>Guía de conversión de volumen</h2>
+<p>El litro (l) es la unidad de volumen más usada fuera del sistema SI formal. En recetas americanas, el galón (gal), la pinta (pt) y la taza (cup) son habituales.</p>
+<h3>Equivalencias clave</h3>
+<div class="formula-box">1 litro = 1.000 ml = 4.2268 cups = 33.81 fl oz<br>1 galón US = 3.7854 l = 4 quartos = 8 pintas<br>1 taza (cup) = 240 ml = 16 cucharadas<br>1 onza líquida (fl oz) = 29.57 ml</div>
+<h3>¿Por qué hay dos galones?</h3>
+<p>El galón americano (US gallon = 3.785 l) y el galón imperial o británico (UK gallon = 4.546 l) son unidades diferentes. Las recetas americanas usan el galón US, que es el que encontrarás en etiquetas de productos importados de Estados Unidos.</p></section>
+  <section class="faq-section"><h2>Preguntas frecuentes</h2>
+<div class="faq-item"><button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">¿Cuántos litros tiene un galón americano?<svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-answer"><p>1 galón americano (US gallon) = <strong>3.785 litros</strong>. Si el precio de la gasolina en EE. UU. es $4 por galón, equivale a unos 1.06 $/litro.</p></div></div>
+<div class="faq-item"><button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">¿Cuántos ml tiene una taza de cocina?<svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-answer"><p>La taza americana estándar (US cup) equivale a <strong>240 ml</strong>. La taza imperial del Reino Unido son 284 ml. Las recetas en internet en español suelen usar la taza de 240 ml.</p></div></div>
+</section>
+  <section class="related-section"><h2>Otros conversores</h2><div class="tools-grid">
+<a href="/converter-cocina.html" class="tool-card"><span class="tc-emoji">🍳</span><div class="tc-name">Cocina</div><div class="tc-desc">Tazas, cucharadas, gramos.</div></a>
+<a href="/converter-peso.html" class="tool-card"><span class="tc-emoji">⚖️</span><div class="tc-name">Peso</div><div class="tc-desc">Kg, libras, onzas.</div></a>
+</div></section>
+  <div class="ad-slot"><!-- AdSense --></div>
+</main>
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div><div class="footer-logo">ConvYa.</div><p class="footer-desc">Conversor de unidades gratuito para hispanohablantes.</p></div>
+      <div class="footer-col"><h4>Conversores</h4>
+        <a href="/converter-cocina.html">🍳 Cocina</a><a href="/converter-peso.html">⚖️ Peso</a>
+        <a href="/converter-longitud.html">📏 Longitud</a><a href="/converter-temperatura.html">🌡️ Temp</a>
+        <a href="/converter-volumen.html">💧 Volumen</a><a href="/converter-area.html">📐 Área</a>
+      </div>
+      <div class="footer-col"><h4>Legal</h4>
+        <a href="/privacidad.html">Privacidad</a><a href="/aviso-legal.html">Aviso legal</a>
+        <a href="/cookies.html">Cookies</a><a href="/sobre.html">Sobre ConvYa</a>
+      </div>
+    </div>
+    <div class="footer-bottom"><span>© ConvYa.</span><span>Resultados orientativos.</span></div>
+  </div>
+</footer>
+<div class="share-toast" id="share-toast">¡Copiado!</div>
+<script>
+document.getElementById('hamburger').addEventListener('click',()=>document.getElementById('main-nav').classList.toggle('open'));
+
+const UNITS = {"l":{"label":"Litros (l)","f":1},"ml":{"label":"Mililitros (ml)","f":0.001},"m3":{"label":"Metros cúbicos (m³)","f":1000},"gal_us":{"label":"Galón US (gal)","f":3.78541},"gal_uk":{"label":"Galón imperial (UK)","f":4.54609},"pt_us":{"label":"Pinta US (pt)","f":0.473176},"cup":{"label":"Taza (240ml)","f":0.24},"fl_oz":{"label":"Onza líquida US (fl oz)","f":0.0295735},"tbsp":{"label":"Cucharada (15ml)","f":0.015},"tsp":{"label":"Cucharadita (5ml)","f":0.005}};
+function toBase(v,u){return v*UNITS[u].f;}
+function fromBase(b,u){return b/UNITS[u].f;}
+function doConv(dir){
+  const vf=document.getElementById('val-from'),vt=document.getElementById('val-to');
+  const uf=document.getElementById('unit-from').value,ut=document.getElementById('unit-to').value;
+  if(dir==='from'){const v=parseFloat(vf.value);if(isNaN(v)||v<0){vt.value='';updateEquiv(null,uf);return;}
+    const b=toBase(v,uf);vt.value=fmt(fromBase(b,ut));updateEquiv(b,uf);updateRef(b);}
+  else{const v=parseFloat(vt.value);if(isNaN(v)||v<0){vf.value='';updateEquiv(null,ut);return;}
+    const b=toBase(v,ut);vf.value=fmt(fromBase(b,uf));updateEquiv(b,uf);updateRef(b);}
+}
+function swapUnits(){
+  const uf=document.getElementById('unit-from'),ut=document.getElementById('unit-to');
+  const vf=document.getElementById('val-from'),vt=document.getElementById('val-to');
+  const tmp=uf.value;uf.value=ut.value;ut.value=tmp;const tv=vf.value;vf.value=vt.value;vt.value=tv;
+  doConv('from');
+}
+function fmt(n){
+  if(isNaN(n)||!isFinite(n))return '—';
+  if(Math.abs(n)>=1e9)return (n/1e9).toFixed(3)+' ×10⁹';
+  if(Math.abs(n)>=1e6)return (n/1e6).toFixed(3)+' ×10⁶';
+  if(Math.abs(n)>=100)return parseFloat(n.toFixed(2)).toString();
+  if(Math.abs(n)>=10)return parseFloat(n.toFixed(3)).toString();
+  if(Math.abs(n)>=1)return parseFloat(n.toFixed(4)).toString();
+  return parseFloat(n.toFixed(6)).toString();
+}
+function updateEquiv(base,active){
+  const g=document.getElementById('equiv-grid');
+  if(base===null){g.innerHTML='<span style="color:var(--text-light);font-size:13px">Introduce un valor para ver equivalencias.</span>';return;}
+  g.innerHTML=Object.entries(UNITS).map(([u,d])=>{
+    const v=fmt(fromBase(base,u));
+    return `<div class="equiv-item${u===active?' active':''}"><div class="ev-unit">${d.label}</div><div class="ev-value">${v}</div></div>`;
+  }).join('');
+}
+function updateRef(base){
+  const vals=[0.25, 0.5, 1, 2, 5, 10, 20];
+  const keys=Object.keys(UNITS);
+  const t=document.getElementById('ref-table');
+  t.innerHTML='<thead><tr><th>Litros</th>'+keys.map(u=>`<th>${UNITS[u].label}</th>`).join('')+'</tr></thead><tbody>'+
+    vals.map(r=>{const b=toBase(r,'l');return '<tr><td>'+r+'</td>'+keys.map(u=>`<td>${fmt(fromBase(b,u))}</td>`).join('')+'</tr>';}).join('')+'</tbody>';
+}
+document.getElementById('val-from').value='1';doConv('from');
+function copyResult(){const v=document.getElementById('val-to').value;const u=document.getElementById('unit-to').options[document.getElementById('unit-to').selectedIndex].text;if(!v)return;navigator.clipboard.writeText(v+' '+u).then(()=>showToast());}
+function copyLink(){navigator.clipboard.writeText(window.location.href).then(()=>showToast('¡Enlace copiado!'));}
+function showToast(m='¡Copiado!'){const t=document.getElementById('share-toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000);}
+function toggleFaq(btn){const e=btn.getAttribute('aria-expanded')==='true';btn.setAttribute('aria-expanded',!e);btn.nextElementSibling.classList.toggle('open');}
+</script>
+<script src="/cookie-banner.js"></script>
+</body>
+</html>

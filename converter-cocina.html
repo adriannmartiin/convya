@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conversor de Tazas a Gramos — Cocina y Repostería | ConvYa</title>
+  <meta name="description" content="Conversor de tazas a gramos por ingrediente. Convierte tazas, cucharadas, cucharaditas, onzas y gramos para harina, azúcar, mantequilla, arroz y 25+ ingredientes más.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convya.org/converter-cocina">
+  <meta property="og:title" content="Conversor de Cocina: Tazas a Gramos | ConvYa">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://convya.org/og-image.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="style.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Conversor de Cocina","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"}}</script>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="/" class="logo">Conv<span style="color:var(--brand)">Ya</span><span class="logo-dot">.</span></a>
+    <nav id="main-nav">
+      <a href="/converter-cocina.html" class="active">🍳 Cocina</a>
+      <a href="/converter-peso.html">⚖️ Peso</a>
+      <a href="/converter-longitud.html">📏 Longitud</a>
+      <a href="/converter-temperatura.html">🌡️ Temperatura</a>
+      <a href="/converter-volumen.html">💧 Volumen</a>
+      <a href="/converter-area.html">📐 Área</a>
+      <a href="/converter-velocidad.html">⚡ Velocidad</a>
+      <a href="/converter-tiempo.html">⏱️ Tiempo</a>
+      <a href="/converter-digital.html">💾 Digital</a>
+      <a href="/converter-numeros.html">🔢 Números</a>
+    </nav>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</header>
+
+<main class="page-wrap">
+  <section class="page-hero">
+    <div class="breadcrumb"><a href="/">Inicio</a><span>›</span>Cocina y Repostería</div>
+    <div class="tool-badge">🍳 Conversor de cocina</div>
+    <h1 class="tool-title">Conversor de <em>Tazas</em> a Gramos</h1>
+    <p class="tool-subtitle">Convierte tazas, cucharadas, cucharaditas, mililitros, onzas y gramos según el ingrediente. 1 taza de harina ≠ 1 taza de azúcar — aquí sí lo tenemos en cuenta.</p>
+  </section>
+
+  <div class="ad-slot"><!-- AdSense --></div>
+
+  <div class="conv-card">
+    <div class="ingredient-row">
+      <label>Ingrediente</label>
+      <select id="ingredient" onchange="updateAll()">
+        <optgroup label="Harinas y polvos">
+          <option value="120">Harina de trigo (normal)</option>
+          <option value="130">Harina integral de trigo</option>
+          <option value="120">Harina de maíz (Maizena)</option>
+          <option value="112">Harina de almendras</option>
+          <option value="90">Harina de avena</option>
+          <option value="100">Cacao en polvo</option>
+          <option value="115">Pan rallado</option>
+        </optgroup>
+        <optgroup label="Azúcares">
+          <option value="200">Azúcar blanca (granulada)</option>
+          <option value="220">Azúcar moreno</option>
+          <option value="125">Azúcar glass (en polvo)</option>
+          <option value="170">Azúcar de coco</option>
+        </optgroup>
+        <optgroup label="Grasas y lácteos">
+          <option value="227">Mantequilla</option>
+          <option value="218">Aceite (oliva, girasol)</option>
+          <option value="245">Leche entera</option>
+          <option value="238">Nata para cocinar</option>
+          <option value="246">Yogur natural</option>
+          <option value="120">Queso rallado</option>
+        </optgroup>
+        <optgroup label="Líquidos">
+          <option value="240">Agua</option>
+          <option value="340">Miel</option>
+          <option value="328">Sirope de arce</option>
+          <option value="240">Zumo de limón / naranja</option>
+        </optgroup>
+        <optgroup label="Cereales, legumbres y semillas">
+          <option value="185">Arroz crudo</option>
+          <option value="200">Arroz cocido</option>
+          <option value="90">Avena (copos)</option>
+          <option value="200">Lentejas crudas</option>
+          <option value="170">Quinoa cruda</option>
+          <option value="175">Garbanzos cocidos</option>
+        </optgroup>
+        <optgroup label="Frutos secos y extras">
+          <option value="143">Almendras enteras</option>
+          <option value="117">Nueces troceadas</option>
+          <option value="150">Pasas</option>
+          <option value="170">Pepitas de chocolate</option>
+          <option value="144">Cacahuetes</option>
+          <option value="140">Anacardos</option>
+        </optgroup>
+        <optgroup label="Condimentos">
+          <option value="287">Sal fina</option>
+          <option value="230">Bicarbonato sódico</option>
+          <option value="200">Levadura química (Royal)</option>
+          <option value="120">Canela en polvo</option>
+        </optgroup>
+      </select>
+    </div>
+
+    <div class="conv-row">
+      <div class="conv-input-group">
+        <label>Cantidad</label>
+        <input type="number" id="val-from" placeholder="1" min="0" oninput="convertKitchen('from')">
+        <select id="unit-from" onchange="convertKitchen('from')" style="margin-top:6px">
+          <option value="cup">Tazas (cup = 240ml)</option>
+          <option value="tbsp">Cucharadas (15ml)</option>
+          <option value="tsp">Cucharaditas (5ml)</option>
+          <option value="ml">Mililitros (ml)</option>
+          <option value="l">Litros (l)</option>
+          <option value="g">Gramos (g)</option>
+          <option value="kg">Kilogramos (kg)</option>
+          <option value="oz">Onzas (oz)</option>
+          <option value="lb">Libras (lb)</option>
+        </select>
+      </div>
+      <button class="swap-btn" onclick="swapKitchen()" title="Intercambiar">↕</button>
+      <div class="conv-input-group">
+        <label>Resultado</label>
+        <input type="number" id="val-to" placeholder="—" min="0" oninput="convertKitchen('to')">
+        <select id="unit-to" onchange="convertKitchen('from')" style="margin-top:6px">
+          <option value="g" selected>Gramos (g)</option>
+          <option value="kg">Kilogramos (kg)</option>
+          <option value="oz">Onzas (oz)</option>
+          <option value="lb">Libras (lb)</option>
+          <option value="cup">Tazas (cup)</option>
+          <option value="tbsp">Cucharadas</option>
+          <option value="tsp">Cucharaditas</option>
+          <option value="ml">Mililitros (ml)</option>
+          <option value="l">Litros (l)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="action-row">
+      <button class="btn-copy" onclick="copyResult()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+        Copiar resultado
+      </button>
+      <button class="btn-wa" onclick="shareWA()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Compartir
+      </button>
+      <button class="btn-link" onclick="copyLink()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+        Copiar enlace
+      </button>
+    </div>
+
+    <div class="all-equiv">
+      <p class="equiv-title">Todas las equivalencias</p>
+      <div class="equiv-grid" id="equiv-grid"></div>
+    </div>
+
+    <!-- Quick reference table by ingredient -->
+    <div class="ref-table-wrap" id="ref-table-section">
+      <h3 id="ref-title">Tabla de referencia rápida</h3>
+      <table class="ref-table" id="ref-table"></table>
+    </div>
+  </div>
+
+  <div class="ad-slot"><!-- AdSense --></div>
+
+  <section class="guide-section">
+    <h2>Guía completa: por qué el conversor de cocina necesita saber el ingrediente</h2>
+    <p>Una taza es una medida de <strong>volumen</strong>, no de peso. El problema es que cada ingrediente tiene una densidad diferente: una taza de harina de trigo pesa unos 120 g, pero una taza de azúcar pesa 200 g. Si usas cualquier conversor genérico de tazas a gramos, el resultado será incorrecto.</p>
+
+    <h3>¿Cuánto pesa 1 taza de los ingredientes más usados?</h3>
+    <div class="ref-table-wrap">
+      <table class="ref-table">
+        <thead><tr><th>Ingrediente</th><th>1 taza (cup)</th><th>1 cucharada</th><th>1 cucharadita</th></tr></thead>
+        <tbody>
+          <tr><td>Harina de trigo</td><td>120 g</td><td>7,5 g</td><td>2,5 g</td></tr>
+          <tr><td>Azúcar blanca</td><td>200 g</td><td>12,5 g</td><td>4,2 g</td></tr>
+          <tr><td>Azúcar glass</td><td>125 g</td><td>7,8 g</td><td>2,6 g</td></tr>
+          <tr><td>Mantequilla</td><td>227 g</td><td>14,2 g</td><td>4,7 g</td></tr>
+          <tr><td>Aceite</td><td>218 g</td><td>13,6 g</td><td>4,5 g</td></tr>
+          <tr><td>Cacao en polvo</td><td>100 g</td><td>6,25 g</td><td>2,1 g</td></tr>
+          <tr><td>Arroz crudo</td><td>185 g</td><td>11,6 g</td><td>3,9 g</td></tr>
+          <tr><td>Avena (copos)</td><td>90 g</td><td>5,6 g</td><td>1,9 g</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>La medida estándar de una taza en España y América Latina</h3>
+    <p>En recetas americanas y muchas en español, 1 taza equivale a <strong>240 ml</strong> (taza americana o US cup). En algunas recetas del Reino Unido se usa la taza imperial (284 ml), pero es menos frecuente. Esta calculadora usa la medida de 240 ml, que es la más extendida en recetas en español de internet.</p>
+
+    <h3>¿Cómo medir correctamente una taza de harina?</h3>
+    <p>Para medir harina con precisión, usa una cuchara para llenar la taza gradualmente y luego pasa un cuchillo recto por la superficie para nivelar. Si metes la taza directamente en el saco de harina y la aprietas, puedes acabar con hasta un 30% más de harina de la que indica la receta, lo que puede arruinar el resultado. Para repostería precisa, se recomienda siempre pesar en gramos.</p>
+  </section>
+
+  <section class="faq-section">
+    <h2>Preguntas frecuentes sobre medidas de cocina</h2>
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">¿Cuántos gramos son 2 tazas de harina?
+        <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer"><p>2 tazas de harina de trigo equivalen a unos <strong>240 g</strong> (2 × 120 g). Usa el conversor de arriba seleccionando «Harina de trigo» y escribiendo 2 en tazas para confirmarlo al instante.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">¿Cuántas cucharadas son 100 gramos?
+        <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer"><p>Depende completamente del ingrediente. 100 g de azúcar son unas 8 cucharadas, mientras que 100 g de harina son unas 13,3 cucharadas. Selecciona el ingrediente en el conversor y pon 100 en gramos para obtener el resultado exacto.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">¿Cuántos ml tiene una cucharada y una cucharadita?
+        <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer"><p>Una cucharada (tbsp, tablespoon) equivale a <strong>15 ml</strong>, y una cucharadita (tsp, teaspoon) equivale a <strong>5 ml</strong>. Una taza tiene 16 cucharadas o 48 cucharaditas.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">¿Cuánto pesa 1/4 de taza de mantequilla?
+        <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer"><p>1/4 de taza de mantequilla pesa aproximadamente <strong>56,75 g</strong> (227 g / 4). También equivale a 4 cucharadas de mantequilla o 57 ml.</p></div>
+    </div>
+  </section>
+
+  <section class="related-section">
+    <h2>Otros conversores útiles</h2>
+    <div class="tools-grid">
+      <a href="/converter-peso.html" class="tool-card"><span class="tc-emoji">⚖️</span><div class="tc-name">Peso y masa</div><div class="tc-desc">Kg, libras, onzas y toneladas.</div></a>
+      <a href="/converter-volumen.html" class="tool-card"><span class="tc-emoji">💧</span><div class="tc-name">Volumen</div><div class="tc-desc">Litros, galones, pintas, tazas.</div></a>
+      <a href="/converter-temperatura.html" class="tool-card"><span class="tc-emoji">🌡️</span><div class="tc-name">Temperatura</div><div class="tc-desc">°C, °F y temperatura de horno.</div></a>
+    </div>
+  </section>
+  <div class="ad-slot"><!-- AdSense --></div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div><div class="footer-logo">ConvYa.</div><p class="footer-desc">Conversor de unidades gratuito para hispanohablantes.</p></div>
+      <div class="footer-col"><h4>Conversores</h4>
+        <a href="/converter-cocina.html">🍳 Cocina</a>
+        <a href="/converter-peso.html">⚖️ Peso</a>
+        <a href="/converter-temperatura.html">🌡️ Temperatura</a>
+        <a href="/converter-volumen.html">💧 Volumen</a>
+      </div>
+      <div class="footer-col"><h4>Legal</h4>
+        <a href="/privacidad.html">Privacidad</a>
+        <a href="/aviso-legal.html">Aviso legal</a>
+        <a href="/cookies.html">Cookies</a>
+      </div>
+    </div>
+    <div class="footer-bottom"><span>© ConvYa.</span><span>Resultados orientativos.</span></div>
+  </div>
+</footer>
+
+<div class="share-toast" id="share-toast">¡Copiado!</div>
+
+<script>
+document.getElementById('hamburger').addEventListener('click',()=>document.getElementById('main-nav').classList.toggle('open'));
+
+// ── Kitchen conversion logic ────────────────────────────────────────
+const ML_PER_UNIT = { cup: 240, tbsp: 15, tsp: 5, ml: 1, l: 1000, g: null, kg: null, oz: null, lb: null };
+const G_PER_WEIGHT = { g: 1, kg: 1000, oz: 28.3495, lb: 453.592 };
+
+function getGPerCup() { return parseFloat(document.getElementById('ingredient').value); }
+
+function toGrams(value, unit) {
+  const gpc = getGPerCup();
+  if (ML_PER_UNIT[unit] !== null && ML_PER_UNIT[unit] !== undefined) {
+    return value * ML_PER_UNIT[unit] * (gpc / 240);
+  }
+  return value * G_PER_WEIGHT[unit];
+}
+
+function fromGrams(grams, unit) {
+  const gpc = getGPerCup();
+  if (ML_PER_UNIT[unit] !== null && ML_PER_UNIT[unit] !== undefined) {
+    return grams / (gpc / 240) / ML_PER_UNIT[unit];
+  }
+  return grams / G_PER_WEIGHT[unit];
+}
+
+function fmt(n) {
+  if (Math.abs(n) >= 100) return n.toFixed(1).replace(/\.0$/, '');
+  if (Math.abs(n) >= 10) return n.toFixed(2);
+  if (Math.abs(n) >= 1) return n.toFixed(3);
+  return n.toFixed(4);
+}
+
+function convertKitchen(dir) {
+  const vf = document.getElementById('val-from');
+  const vt = document.getElementById('val-to');
+  const uf = document.getElementById('unit-from').value;
+  const ut = document.getElementById('unit-to').value;
+  if (dir === 'from') {
+    const v = parseFloat(vf.value);
+    if (isNaN(v) || v < 0) { vt.value = ''; updateEquiv(null, uf); return; }
+    const g = toGrams(v, uf);
+    vt.value = fmt(fromGrams(g, ut));
+    updateEquiv(g, uf);
+    updateRefTable();
+  } else {
+    const v = parseFloat(vt.value);
+    if (isNaN(v) || v < 0) { vf.value = ''; updateEquiv(null, ut); return; }
+    const g = toGrams(v, ut);
+    vf.value = fmt(fromGrams(g, uf));
+    updateEquiv(g, ut);
+    updateRefTable();
+  }
+}
+
+function swapKitchen() {
+  const uf = document.getElementById('unit-from');
+  const ut = document.getElementById('unit-to');
+  const vf = document.getElementById('val-from');
+  const vt = document.getElementById('val-to');
+  const tmp = uf.value; uf.value = ut.value; ut.value = tmp;
+  const tv = vf.value; vf.value = vt.value; vt.value = tv;
+  convertKitchen('from');
+}
+
+const UNIT_LABELS = {
+  cup:'Tazas', tbsp:'Cucharadas', tsp:'Cucharaditas', ml:'Mililitros',
+  l:'Litros', g:'Gramos', kg:'Kilogramos', oz:'Onzas (oz)', lb:'Libras (lb)'
+};
+
+function updateEquiv(grams, activeUnit) {
+  const grid = document.getElementById('equiv-grid');
+  if (grams === null || isNaN(grams)) { grid.innerHTML = '<span style="color:var(--text-light);font-size:13px">Introduce un valor para ver equivalencias.</span>'; return; }
+  const units = ['g','kg','oz','lb','cup','tbsp','tsp','ml','l'];
+  grid.innerHTML = units.map(u => {
+    const val = fmt(fromGrams(grams, u));
+    const active = u === activeUnit ? ' active' : '';
+    return `<div class="equiv-item${active}"><div class="ev-unit">${UNIT_LABELS[u]}</div><div class="ev-value">${val}</div></div>`;
+  }).join('');
+}
+
+function updateRefTable() {
+  const gpc = getGPerCup();
+  const fractions = [
+    {label:'1/8 taza', cups: 0.125},
+    {label:'1/4 taza', cups: 0.25},
+    {label:'1/3 taza', cups: 1/3},
+    {label:'1/2 taza', cups: 0.5},
+    {label:'2/3 taza', cups: 2/3},
+    {label:'3/4 taza', cups: 0.75},
+    {label:'1 taza', cups: 1},
+    {label:'1 1/2 tazas', cups: 1.5},
+    {label:'2 tazas', cups: 2},
+  ];
+  const table = document.getElementById('ref-table');
+  table.innerHTML = `<thead><tr><th>Medida</th><th>Gramos (g)</th><th>Onzas (oz)</th><th>Cucharadas</th></tr></thead><tbody>` +
+    fractions.map(f => {
+      const g = f.cups * gpc;
+      const oz = g / 28.3495;
+      const tbsp = f.cups * 16;
+      return `<tr><td>${f.label}</td><td>${g.toFixed(1)} g</td><td>${oz.toFixed(2)} oz</td><td>${tbsp % 1 === 0 ? tbsp : tbsp.toFixed(1)}</td></tr>`;
+    }).join('') + '</tbody>';
+}
+
+function updateAll() { convertKitchen('from'); }
+
+function copyResult() {
+  const v = document.getElementById('val-to').value;
+  const u = document.getElementById('unit-to').options[document.getElementById('unit-to').selectedIndex].text;
+  if (!v) return;
+  navigator.clipboard.writeText(v + ' ' + u).then(() => showToast());
+}
+function copyLink() { navigator.clipboard.writeText(window.location.href).then(() => showToast('¡Enlace copiado!')); }
+function shareWA() { window.open('https://wa.me/?text=' + encodeURIComponent('Conversor de cocina: ' + window.location.href), '_blank'); }
+function showToast(msg = '¡Copiado!') { const t = document.getElementById('share-toast'); t.textContent = msg; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'), 2000); }
+function toggleFaq(btn) { const e = btn.getAttribute('aria-expanded') === 'true'; btn.setAttribute('aria-expanded', !e); btn.nextElementSibling.classList.toggle('open'); }
+
+// Init
+document.getElementById('val-from').value = '1';
+updateEquiv(null, 'cup');
+updateRefTable();
+convertKitchen('from');
+</script>
+<script src="/cookie-banner.js"></script>
+</body>
+</html>

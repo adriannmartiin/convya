@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conversor de Área y Superficie — m², Hectáreas, Acres, Pies² | ConvYa</title>
+  <meta name="description" content="Conversor de área gratuito. Convierte metros cuadrados, kilómetros cuadrados, hectáreas, acres y pies cuadrados al instante.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convya.org/converter-area">
+  <meta property="og:title" content="Conversor de Área | ConvYa"><meta property="og:type" content="website">
+  <meta property="og:image" content="https://convya.org/og-image.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="stylesheet" href="style.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+</head>
+<body>
+<header><div class="header-inner">
+  <a href="/" class="logo">Conv<span style="color:var(--brand)">Ya</span><span class="logo-dot">.</span></a>
+  <nav id="main-nav">
+    <a href="/converter-cocina.html">🍳 Cocina</a>
+    <a href="/converter-peso.html">⚖️ Peso</a>
+    <a href="/converter-longitud.html">📏 Longitud</a>
+    <a href="/converter-temperatura.html">🌡️ Temperatura</a>
+    <a href="/converter-volumen.html">💧 Volumen</a>
+    <a href="/converter-area.html" class="active">📐 Área</a>
+    <a href="/converter-velocidad.html">⚡ Velocidad</a>
+    <a href="/converter-tiempo.html">⏱️ Tiempo</a>
+    <a href="/converter-digital.html">💾 Digital</a>
+    <a href="/converter-numeros.html">🔢 Números</a>
+  </nav>
+  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</div></header>
+<main class="page-wrap">
+  <section class="page-hero">
+    <div class="breadcrumb"><a href="/">Inicio</a><span>›</span>Área y Superficie</div>
+    <div class="tool-badge">📐 Conversor de área</div>
+    <h1 class="tool-title">Conversor de <em>Área</em> y Superficie</h1>
+    <p class="tool-subtitle">Convierte metros cuadrados, hectáreas, acres, kilómetros cuadrados y pies cuadrados al instante.</p>
+  </section>
+  <div class="ad-slot"><!-- AdSense --></div>
+  <div class="conv-card">
+    <div class="conv-row">
+      <div class="conv-input-group">
+        <label>Valor</label>
+        <input type="number" id="val-from" placeholder="1" min="0" oninput="doConv('from')">
+        <select id="unit-from" onchange="doConv('from')" style="margin-top:6px"><option value="m2" selected>Metros cuadrados (m²)</option><option value="km2">Kilómetros cuadrados (km²)</option><option value="cm2">Centímetros cuadrados (cm²)</option><option value="ha">Hectáreas (ha)</option><option value="a">Áreas (a)</option><option value="ac">Acres (ac)</option><option value="ft2">Pies cuadrados (ft²)</option><option value="yd2">Yardas cuadradas (yd²)</option><option value="mi2">Millas cuadradas (mi²)</option></select>
+      </div>
+      <button class="swap-btn" onclick="swapUnits()">↕</button>
+      <div class="conv-input-group">
+        <label>Resultado</label>
+        <input type="number" id="val-to" placeholder="—" min="0" oninput="doConv('to')">
+        <select id="unit-to" onchange="doConv('from')" style="margin-top:6px"><option value="m2">Metros cuadrados (m²)</option><option value="km2">Kilómetros cuadrados (km²)</option><option value="cm2">Centímetros cuadrados (cm²)</option><option value="ha">Hectáreas (ha)</option><option value="a">Áreas (a)</option><option value="ac">Acres (ac)</option><option value="ft2" selected>Pies cuadrados (ft²)</option><option value="yd2">Yardas cuadradas (yd²)</option><option value="mi2">Millas cuadradas (mi²)</option></select>
+      </div>
+    </div>
+    <div class="action-row">
+      <button class="btn-copy" onclick="copyResult()">📋 Copiar resultado</button>
+      <button class="btn-link" onclick="copyLink()">🔗 Copiar enlace</button>
+    </div>
+    <div class="all-equiv"><p class="equiv-title">Todas las equivalencias</p><div class="equiv-grid" id="equiv-grid"></div></div>
+    <div class="ref-table-wrap"><h3>Tabla de referencia</h3><table class="ref-table" id="ref-table"></table></div>
+  </div>
+  <div class="ad-slot"><!-- AdSense --></div>
+  <section class="guide-section"><h2>Guía de conversión de área</h2>
+<p>El metro cuadrado (m²) es la unidad base de superficie del SI. Para terrenos y propiedades se usan habitualmente la hectárea (ha) en Europa y el acre en países anglosajones.</p>
+<h3>Equivalencias clave</h3>
+<div class="formula-box">1 hectárea (ha) = 10.000 m² = 2.471 acres<br>1 acre = 4.046,86 m² = 0.4047 ha<br>1 km² = 100 ha = 247.1 acres<br>1 pie² = 0.0929 m²</div>
+<h3>Referencias cotidianas</h3>
+<p>Un piso de 90 m² es un tamaño habitual en España para una vivienda. Una cancha de fútbol estándar mide entre 7.000 y 8.000 m² (0.7–0.8 hectáreas). Un campo agrícola grande suele medirse en hectáreas.</p></section>
+  <section class="faq-section"><h2>Preguntas frecuentes</h2>
+<div class="faq-item"><button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">¿Cuántos metros cuadrados tiene una hectárea?<svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-answer"><p>Una hectárea equivale a <strong>10.000 m²</strong>, que es un cuadrado de 100 metros de lado. Es la unidad más usada en agricultura y catastro en España.</p></div></div>
+<div class="faq-item"><button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">¿Cuántas hectáreas tiene un acre?<svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-answer"><p>1 acre = <strong>0.4047 hectáreas</strong> o 4.046,86 m². Para pasar de acres a hectáreas, multiplica por 0.4047. Para la dirección contraria, multiplica las hectáreas por 2.471.</p></div></div>
+</section>
+  <section class="related-section"><h2>Otros conversores</h2><div class="tools-grid">
+<a href="/converter-longitud.html" class="tool-card"><span class="tc-emoji">📏</span><div class="tc-name">Longitud</div><div class="tc-desc">Metros, pies, millas.</div></a>
+<a href="/converter-velocidad.html" class="tool-card"><span class="tc-emoji">⚡</span><div class="tc-name">Velocidad</div><div class="tc-desc">km/h, mph, m/s.</div></a>
+</div></section>
+  <div class="ad-slot"><!-- AdSense --></div>
+</main>
+<footer><div class="footer-inner">
+  <div class="footer-grid">
+    <div><div class="footer-logo">ConvYa.</div><p class="footer-desc">Conversor de unidades gratuito.</p></div>
+    <div class="footer-col"><h4>Conversores</h4>
+      <a href="/converter-cocina.html">🍳 Cocina</a><a href="/converter-peso.html">⚖️ Peso</a>
+      <a href="/converter-longitud.html">📏 Longitud</a><a href="/converter-temperatura.html">🌡️ Temp</a>
+      <a href="/converter-velocidad.html">⚡ Velocidad</a><a href="/converter-digital.html">💾 Digital</a>
+    </div>
+    <div class="footer-col"><h4>Legal</h4>
+      <a href="/privacidad.html">Privacidad</a><a href="/aviso-legal.html">Aviso legal</a>
+      <a href="/cookies.html">Cookies</a><a href="/sobre.html">Sobre ConvYa</a>
+    </div>
+  </div>
+  <div class="footer-bottom"><span>© ConvYa.</span><span>Resultados orientativos.</span></div>
+</div></footer>
+<div class="share-toast" id="share-toast">¡Copiado!</div>
+<script>
+document.getElementById('hamburger').addEventListener('click',()=>document.getElementById('main-nav').classList.toggle('open'));
+
+const UNITS={"m2":{"l":"Metros cuadrados (m²)","f":1},"km2":{"l":"Kilómetros cuadrados (km²)","f":1000000.0},"cm2":{"l":"Centímetros cuadrados (cm²)","f":0.0001},"ha":{"l":"Hectáreas (ha)","f":10000},"a":{"l":"Áreas (a)","f":100},"ac":{"l":"Acres (ac)","f":4046.856},"ft2":{"l":"Pies cuadrados (ft²)","f":0.092903},"yd2":{"l":"Yardas cuadradas (yd²)","f":0.836127},"mi2":{"l":"Millas cuadradas (mi²)","f":2589988}};
+function toBase(v,u){return v*UNITS[u].f;}
+function fromBase(b,u){return b/UNITS[u].f;}
+function doConv(dir){
+  const vf=document.getElementById('val-from'),vt=document.getElementById('val-to');
+  const uf=document.getElementById('unit-from').value,ut=document.getElementById('unit-to').value;
+  if(dir==='from'){const v=parseFloat(vf.value);if(isNaN(v)){vt.value='';upEq(null,uf);return;}
+    const b=toBase(v,uf);vt.value=fmt(fromBase(b,ut));upEq(b,uf);upRef(b);}
+  else{const v=parseFloat(vt.value);if(isNaN(v)){vf.value='';upEq(null,ut);return;}
+    const b=toBase(v,ut);vf.value=fmt(fromBase(b,uf));upEq(b,uf);upRef(b);}
+}
+function swapUnits(){
+  const uf=document.getElementById('unit-from'),ut=document.getElementById('unit-to');
+  const vf=document.getElementById('val-from'),vt=document.getElementById('val-to');
+  const t=uf.value;uf.value=ut.value;ut.value=t;const tv=vf.value;vf.value=vt.value;vt.value=tv;doConv('from');
+}
+function fmt(n){if(isNaN(n)||!isFinite(n))return '—';
+  if(Math.abs(n)>=1e9)return (n/1e9).toFixed(3)+'B';
+  if(Math.abs(n)>=1e6)return (n/1e6).toFixed(3)+'M';
+  if(Math.abs(n)>=100)return parseFloat(n.toFixed(2)).toString();
+  if(Math.abs(n)>=1)return parseFloat(n.toFixed(4)).toString();
+  return parseFloat(n.toFixed(6)).toString();}
+function upEq(base,active){const g=document.getElementById('equiv-grid');
+  if(base===null){g.innerHTML='<span style="color:var(--text-light);font-size:13px">Introduce un valor.</span>';return;}
+  g.innerHTML=Object.entries(UNITS).map(([u,d])=>
+    `<div class="equiv-item${u===active?' active':''}"><div class="ev-unit">${d.l}</div><div class="ev-value">${fmt(fromBase(base,u))}</div></div>`).join('');}
+function upRef(base){const rvs=[1, 10, 100, 500, 1000, 5000, 10000];const keys=Object.keys(UNITS);
+  const t=document.getElementById('ref-table');
+  t.innerHTML='<thead><tr><th>m²</th>'+keys.map(u=>`<th>${UNITS[u].l}</th>`).join('')+'</tr></thead><tbody>'+
+  rvs.map(r=>{const b=toBase(r,'m2');return '<tr><td>'+r+'</td>'+keys.map(u=>`<td>${fmt(fromBase(b,u))}</td>`).join('')+'</tr>';}).join('')+'</tbody>';}
+document.getElementById('val-from').value='1';doConv('from');
+function copyResult(){const v=document.getElementById('val-to').value;const u=document.getElementById('unit-to').options[document.getElementById('unit-to').selectedIndex].text;if(!v)return;navigator.clipboard.writeText(v+' '+u).then(()=>showToast());}
+function copyLink(){navigator.clipboard.writeText(window.location.href).then(()=>showToast('¡Enlace copiado!'));}
+function showToast(m='¡Copiado!'){const t=document.getElementById('share-toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000);}
+function toggleFaq(btn){const e=btn.getAttribute('aria-expanded')==='true';btn.setAttribute('aria-expanded',!e);btn.nextElementSibling.classList.toggle('open');}
+</script>
+<script src="/cookie-banner.js"></script>
+</body></html>

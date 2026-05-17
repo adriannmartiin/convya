@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conversor de Almacenamiento Digital — Bytes, KB, MB, GB, TB | ConvYa</title>
+  <meta name="description" content="Conversor de almacenamiento digital gratuito. Convierte bytes, kilobytes, megabytes, gigabytes, terabytes y petabytes al instante.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convya.org/converter-digital">
+  <meta property="og:title" content="Conversor Digital — Bytes, KB, MB, GB | ConvYa"><meta property="og:type" content="website">
+  <meta property="og:image" content="https://convya.org/og-image.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="stylesheet" href="style.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+</head>
+<body>
+<header><div class="header-inner">
+  <a href="/" class="logo">Conv<span style="color:var(--brand)">Ya</span><span class="logo-dot">.</span></a>
+  <nav id="main-nav">
+    <a href="/converter-cocina.html">🍳 Cocina</a>
+    <a href="/converter-peso.html">⚖️ Peso</a>
+    <a href="/converter-longitud.html">📏 Longitud</a>
+    <a href="/converter-temperatura.html">🌡️ Temperatura</a>
+    <a href="/converter-volumen.html">💧 Volumen</a>
+    <a href="/converter-area.html">📐 Área</a>
+    <a href="/converter-velocidad.html">⚡ Velocidad</a>
+    <a href="/converter-tiempo.html">⏱️ Tiempo</a>
+    <a href="/converter-digital.html" class="active">💾 Digital</a>
+    <a href="/converter-numeros.html">🔢 Números</a>
+  </nav>
+  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</div></header>
+<main class="page-wrap">
+  <section class="page-hero">
+    <div class="breadcrumb"><a href="/">Inicio</a><span>›</span>Almacenamiento Digital</div>
+    <div class="tool-badge">💾 Conversor digital</div>
+    <h1 class="tool-title">Conversor de <em>Almacenamiento</em> Digital</h1>
+    <p class="tool-subtitle">Convierte bytes, KB, MB, GB, TB y PB al instante. También convierte entre bits y bytes.</p>
+  </section>
+  <div class="ad-slot"><!-- AdSense --></div>
+  <div class="conv-card">
+    <div class="conv-row">
+      <div class="conv-input-group">
+        <label>Valor</label>
+        <input type="number" id="val-from" placeholder="1" min="0" oninput="doConv('from')">
+        <select id="unit-from" onchange="doConv('from')" style="margin-top:6px"><option value="B">Bytes (B)</option><option value="KB">Kilobytes (KB)</option><option value="MB">Megabytes (MB)</option><option value="GB" selected>Gigabytes (GB)</option><option value="TB">Terabytes (TB)</option><option value="PB">Petabytes (PB)</option><option value="Kb">Kilobits (Kb)</option><option value="Mb">Megabits (Mb)</option><option value="Gb">Gigabits (Gb)</option></select>
+      </div>
+      <button class="swap-btn" onclick="swapUnits()">↕</button>
+      <div class="conv-input-group">
+        <label>Resultado</label>
+        <input type="number" id="val-to" placeholder="—" min="0" oninput="doConv('to')">
+        <select id="unit-to" onchange="doConv('from')" style="margin-top:6px"><option value="B">Bytes (B)</option><option value="KB">Kilobytes (KB)</option><option value="MB" selected>Megabytes (MB)</option><option value="GB">Gigabytes (GB)</option><option value="TB">Terabytes (TB)</option><option value="PB">Petabytes (PB)</option><option value="Kb">Kilobits (Kb)</option><option value="Mb">Megabits (Mb)</option><option value="Gb">Gigabits (Gb)</option></select>
+      </div>
+    </div>
+    <div class="action-row">
+      <button class="btn-copy" onclick="copyResult()">📋 Copiar resultado</button>
+      <button class="btn-link" onclick="copyLink()">🔗 Copiar enlace</button>
+    </div>
+    <div class="all-equiv"><p class="equiv-title">Todas las equivalencias</p><div class="equiv-grid" id="equiv-grid"></div></div>
+    <div class="ref-table-wrap"><h3>Tabla de referencia</h3><table class="ref-table" id="ref-table"></table></div>
+  </div>
+  <div class="ad-slot"><!-- AdSense --></div>
+  <section class="guide-section"><h2>Guía de conversión de almacenamiento digital</h2>
+<p>El byte (B) es la unidad base de almacenamiento digital. Los múltiplos se basan en potencias de 1.024 (base 2), no de 1.000, lo que causa diferencias entre las etiquetas de los fabricantes y la capacidad real que muestra el sistema operativo.</p>
+<h3>Equivalencias exactas (base 1024)</h3>
+<div class="formula-box">1 KB = 1.024 bytes<br>1 MB = 1.024 KB = 1.048.576 bytes<br>1 GB = 1.024 MB = 1.073.741.824 bytes<br>1 TB = 1.024 GB = 1.099.511.627.776 bytes</div>
+<h3>¿Por qué mi disco duro tiene menos espacio del que pone en la caja?</h3>
+<p>Los fabricantes usan base decimal (1 GB = 1.000 MB). Pero los sistemas operativos usan base binaria (1 GiB = 1.024 MB). Un disco de 1 TB del fabricante muestra ~931 GB en Windows o Linux. Esta calculadora usa la base 1.024, la que usa tu sistema operativo.</p></section>
+  <section class="faq-section"><h2>Preguntas frecuentes</h2>
+<div class="faq-item"><button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">¿Cuántos MB tiene 1 GB?<svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-answer"><p>1 gigabyte (GB) = <strong>1.024 megabytes (MB)</strong>. O si usas la definición decimal de los fabricantes, 1 GB = 1.000 MB. La diferencia explica la "pérdida" de espacio que siempre notas en discos y pendrives nuevos.</p></div></div>
+<div class="faq-item"><button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">¿Qué diferencia hay entre bits y bytes?<svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-answer"><p>Un bit es la unidad mínima de información (0 o 1). Un byte son <strong>8 bits</strong>. Las velocidades de internet se suelen expresar en megabits por segundo (Mbps), mientras que los tamaños de archivo en megabytes (MB). Para comparar: 100 Mbps de fibra permite descargar 12.5 MB por segundo.</p></div></div>
+</section>
+  <section class="related-section"><h2>Otros conversores</h2><div class="tools-grid">
+<a href="/converter-tiempo.html" class="tool-card"><span class="tc-emoji">⏱️</span><div class="tc-name">Tiempo</div><div class="tc-desc">Segundos, minutos, horas.</div></a>
+<a href="/converter-numeros.html" class="tool-card"><span class="tc-emoji">🔢</span><div class="tc-name">Números</div><div class="tc-desc">Números a letras, romanos.</div></a>
+</div></section>
+  <div class="ad-slot"><!-- AdSense --></div>
+</main>
+<footer><div class="footer-inner">
+  <div class="footer-grid">
+    <div><div class="footer-logo">ConvYa.</div><p class="footer-desc">Conversor de unidades gratuito.</p></div>
+    <div class="footer-col"><h4>Conversores</h4>
+      <a href="/converter-cocina.html">🍳 Cocina</a><a href="/converter-peso.html">⚖️ Peso</a>
+      <a href="/converter-longitud.html">📏 Longitud</a><a href="/converter-temperatura.html">🌡️ Temp</a>
+      <a href="/converter-velocidad.html">⚡ Velocidad</a><a href="/converter-digital.html">💾 Digital</a>
+    </div>
+    <div class="footer-col"><h4>Legal</h4>
+      <a href="/privacidad.html">Privacidad</a><a href="/aviso-legal.html">Aviso legal</a>
+      <a href="/cookies.html">Cookies</a><a href="/sobre.html">Sobre ConvYa</a>
+    </div>
+  </div>
+  <div class="footer-bottom"><span>© ConvYa.</span><span>Resultados orientativos.</span></div>
+</div></footer>
+<div class="share-toast" id="share-toast">¡Copiado!</div>
+<script>
+document.getElementById('hamburger').addEventListener('click',()=>document.getElementById('main-nav').classList.toggle('open'));
+
+const UNITS={"B":{"l":"Bytes (B)","f":1},"KB":{"l":"Kilobytes (KB)","f":1024},"MB":{"l":"Megabytes (MB)","f":1048576},"GB":{"l":"Gigabytes (GB)","f":1073741824},"TB":{"l":"Terabytes (TB)","f":1099511627776},"PB":{"l":"Petabytes (PB)","f":1125899906842624},"Kb":{"l":"Kilobits (Kb)","f":128},"Mb":{"l":"Megabits (Mb)","f":131072},"Gb":{"l":"Gigabits (Gb)","f":134217728}};
+function toBase(v,u){return v*UNITS[u].f;}
+function fromBase(b,u){return b/UNITS[u].f;}
+function doConv(dir){
+  const vf=document.getElementById('val-from'),vt=document.getElementById('val-to');
+  const uf=document.getElementById('unit-from').value,ut=document.getElementById('unit-to').value;
+  if(dir==='from'){const v=parseFloat(vf.value);if(isNaN(v)){vt.value='';upEq(null,uf);return;}
+    const b=toBase(v,uf);vt.value=fmt(fromBase(b,ut));upEq(b,uf);upRef(b);}
+  else{const v=parseFloat(vt.value);if(isNaN(v)){vf.value='';upEq(null,ut);return;}
+    const b=toBase(v,ut);vf.value=fmt(fromBase(b,uf));upEq(b,uf);upRef(b);}
+}
+function swapUnits(){
+  const uf=document.getElementById('unit-from'),ut=document.getElementById('unit-to');
+  const vf=document.getElementById('val-from'),vt=document.getElementById('val-to');
+  const t=uf.value;uf.value=ut.value;ut.value=t;const tv=vf.value;vf.value=vt.value;vt.value=tv;doConv('from');
+}
+function fmt(n){if(isNaN(n)||!isFinite(n))return '—';
+  if(Math.abs(n)>=1e9)return (n/1e9).toFixed(3)+'B';
+  if(Math.abs(n)>=1e6)return (n/1e6).toFixed(3)+'M';
+  if(Math.abs(n)>=100)return parseFloat(n.toFixed(2)).toString();
+  if(Math.abs(n)>=1)return parseFloat(n.toFixed(4)).toString();
+  return parseFloat(n.toFixed(6)).toString();}
+function upEq(base,active){const g=document.getElementById('equiv-grid');
+  if(base===null){g.innerHTML='<span style="color:var(--text-light);font-size:13px">Introduce un valor.</span>';return;}
+  g.innerHTML=Object.entries(UNITS).map(([u,d])=>
+    `<div class="equiv-item${u===active?' active':''}"><div class="ev-unit">${d.l}</div><div class="ev-value">${fmt(fromBase(base,u))}</div></div>`).join('');}
+function upRef(base){const rvs=[1, 4, 8, 16, 32, 64, 128, 256, 512, 1024];const keys=Object.keys(UNITS);
+  const t=document.getElementById('ref-table');
+  t.innerHTML='<thead><tr><th>GB</th>'+keys.map(u=>`<th>${UNITS[u].l}</th>`).join('')+'</tr></thead><tbody>'+
+  rvs.map(r=>{const b=toBase(r,'GB');return '<tr><td>'+r+'</td>'+keys.map(u=>`<td>${fmt(fromBase(b,u))}</td>`).join('')+'</tr>';}).join('')+'</tbody>';}
+document.getElementById('val-from').value='1';doConv('from');
+function copyResult(){const v=document.getElementById('val-to').value;const u=document.getElementById('unit-to').options[document.getElementById('unit-to').selectedIndex].text;if(!v)return;navigator.clipboard.writeText(v+' '+u).then(()=>showToast());}
+function copyLink(){navigator.clipboard.writeText(window.location.href).then(()=>showToast('¡Enlace copiado!'));}
+function showToast(m='¡Copiado!'){const t=document.getElementById('share-toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000);}
+function toggleFaq(btn){const e=btn.getAttribute('aria-expanded')==='true';btn.setAttribute('aria-expanded',!e);btn.nextElementSibling.classList.toggle('open');}
+</script>
+<script src="/cookie-banner.js"></script>
+</body></html>

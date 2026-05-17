@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conversor de Consumo de Combustible — L/100km, MPG, km/l | ConvYa</title>
+  <meta name="description" content="Convierte consumo de combustible entre litros por 100 km, km por litro, MPG americano y MPG británico al instante. Gratis, sin registro.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convya.org/converter-combustible">
+  <meta property="og:title" content="Conversor de Consumo de Combustible | ConvYa">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://convya.org/og-image.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="style.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+</head>
+<body>
+<header><div class="header-inner">
+  <a href="/" class="logo">Conv<span style="color:var(--brand)">Ya</span><span class="logo-dot">.</span></a>
+  <nav id="main-nav">
+    <a href="/converter-cocina.html">🍳 Cocina</a>
+    <a href="/converter-peso.html">⚖️ Peso</a>
+    <a href="/converter-longitud.html">📏 Longitud</a>
+    <a href="/converter-temperatura.html">🌡️ Temperatura</a>
+    <a href="/converter-volumen.html">💧 Volumen</a>
+    <a href="/converter-area.html">📐 Área</a>
+    <a href="/converter-velocidad.html">⚡ Velocidad</a>
+    <a href="/converter-tiempo.html">⏱️ Tiempo</a>
+    <a href="/converter-digital.html">💾 Digital</a>
+    <a href="/converter-numeros.html">🔢 Números</a>
+  </nav>
+  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</div></header>
+
+<main class="page-wrap">
+  <section class="page-hero">
+    <div class="breadcrumb"><a href="/">Inicio</a><span>›</span>Consumo de Combustible</div>
+    <div class="tool-badge">⛽ Conversor de combustible</div>
+    <h1 class="tool-title">Conversor de <em>Consumo</em> de Combustible</h1>
+    <p class="tool-subtitle">Convierte entre litros/100 km, km por litro, MPG americano y MPG británico. Importante: el consumo es una relación inversa — menos l/100km es más eficiente, más mpg también.</p>
+  </section>
+
+  <div class="ad-slot"><!-- AdSense --></div>
+
+  <div class="conv-card">
+    <div class="conv-row">
+      <div class="conv-input-group">
+        <label>Valor</label>
+        <input type="number" id="val-from" placeholder="6.5" min="0.01" step="0.1" oninput="doConv('from')">
+        <select id="unit-from" onchange="doConv('from')" style="margin-top:6px">
+          <option value="l100" selected>Litros / 100 km (l/100km)</option>
+          <option value="kml">Kilómetros / litro (km/l)</option>
+          <option value="mpg_us">MPG americano (US mpg)</option>
+          <option value="mpg_uk">MPG británico (UK mpg)</option>
+        </select>
+      </div>
+      <button class="swap-btn" onclick="swapUnits()">↕</button>
+      <div class="conv-input-group">
+        <label>Resultado</label>
+        <input type="number" id="val-to" placeholder="—" min="0.01" step="0.1" oninput="doConv('to')">
+        <select id="unit-to" onchange="doConv('from')" style="margin-top:6px">
+          <option value="l100">Litros / 100 km (l/100km)</option>
+          <option value="kml">Kilómetros / litro (km/l)</option>
+          <option value="mpg_us" selected>MPG americano (US mpg)</option>
+          <option value="mpg_uk">MPG británico (UK mpg)</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Efficiency label -->
+    <div id="efficiency-bar" style="margin-top:12px;padding:10px 14px;border-radius:8px;background:var(--bg);display:none">
+      <p id="efficiency-text" style="font-size:13px;font-weight:500;color:var(--text-muted)"></p>
+    </div>
+
+    <div class="action-row">
+      <button class="btn-copy" onclick="copyResult()">📋 Copiar resultado</button>
+      <button class="btn-link" onclick="copyLink()">🔗 Copiar enlace</button>
+    </div>
+
+    <div class="all-equiv">
+      <p class="equiv-title">Todas las equivalencias</p>
+      <div class="equiv-grid" id="equiv-grid"></div>
+    </div>
+
+    <div class="ref-table-wrap">
+      <h3>Tabla de referencia: consumos habituales</h3>
+      <table class="ref-table" id="ref-table"></table>
+    </div>
+  </div>
+
+  <div class="ad-slot"><!-- AdSense --></div>
+
+  <section class="guide-section">
+    <h2>Guía de conversión de consumo de combustible</h2>
+    <p>El consumo de combustible se mide de forma diferente según el país. En Europa se usa <strong>litros por cada 100 km</strong>: cuanto menor es el número, más eficiente es el vehículo. En Estados Unidos y el Reino Unido se usan <strong>millas por galón (mpg)</strong>: aquí, a mayor número, más eficiente.</p>
+
+    <h3>Fórmulas de conversión</h3>
+    <div class="formula-box">
+      l/100km → mpg (US): 235.215 ÷ l/100km<br>
+      l/100km → mpg (UK): 282.481 ÷ l/100km<br>
+      l/100km → km/l: 100 ÷ l/100km<br>
+      mpg (US) → l/100km: 235.215 ÷ mpg<br>
+      km/l → l/100km: 100 ÷ km/l
+    </div>
+
+    <h3>¿Por qué la relación es inversa?</h3>
+    <p>Un coche que consume 10 l/100km es menos eficiente que uno de 5 l/100km (necesita el doble de combustible para la misma distancia). En mpg, el de 5 l/100km rinde ~47 mpg US y el de 10 l/100km rinde ~23.5 mpg US. La relación es inversa porque se mide lo opuesto: distancia recorrida por unidad de combustible, en vez de combustible necesario por unidad de distancia.</p>
+
+    <h3>¿Qué consumo es eficiente?</h3>
+    <p>Un utilitario moderno en ciclo mixto consume entre 5 y 6 l/100km. Un SUV grande puede consumir 9–12 l/100km. Un vehículo eléctrico consume 0 litros pero suele expresarse como kWh/100km. El etiquetado europeo clasifica eficiencia de A a G.</p>
+  </section>
+
+  <section class="faq-section">
+    <h2>Preguntas frecuentes</h2>
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">¿Cuántos mpg son 6 litros a los 100?
+        <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer"><p>6 l/100km equivalen a <strong>39.2 mpg (US)</strong> o 47.1 mpg (UK). Es el consumo de un coche eficiente de segmento compacto en ciclo mixto.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">¿Por qué el MPG americano y el británico son diferentes?
+        <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer"><p>Porque usan galones de diferente tamaño. El galón americano (US gallon) = 3.785 litros, mientras que el galón imperial británico = 4.546 litros. Por eso el mismo coche siempre tiene un mpg mayor en la escala británica. Para comparar coches internacionalmente, lo más neutro es usar l/100km o km/l.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">¿Cómo calculo el consumo real de mi coche?
+        <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer"><p>Llena el depósito completo, anota los kilómetros. Cuando vuelvas a llenar, anota los litros echados y los km recorridos. La fórmula es: <strong>consumo = (litros × 100) ÷ km recorridos</strong>. Por ejemplo, si echaste 45 litros y recorriste 600 km: 45 × 100 / 600 = 7.5 l/100km.</p></div>
+    </div>
+  </section>
+
+  <section class="related-section">
+    <h2>Otros conversores</h2>
+    <div class="tools-grid">
+      <a href="/converter-velocidad.html" class="tool-card"><span class="tc-emoji">⚡</span><div class="tc-name">Velocidad</div><div class="tc-desc">km/h, mph, m/s, nudos.</div></a>
+      <a href="/converter-longitud.html" class="tool-card"><span class="tc-emoji">📏</span><div class="tc-name">Longitud</div><div class="tc-desc">Km, millas, pies.</div></a>
+      <a href="/converter-volumen.html" class="tool-card"><span class="tc-emoji">💧</span><div class="tc-name">Volumen</div><div class="tc-desc">Litros, galones, ml.</div></a>
+    </div>
+  </section>
+  <div class="ad-slot"><!-- AdSense --></div>
+</main>
+
+<footer><div class="footer-inner">
+  <div class="footer-grid">
+    <div><div class="footer-logo">ConvYa.</div><p class="footer-desc">Conversor de unidades gratuito para hispanohablantes.</p></div>
+    <div class="footer-col"><h4>Conversores</h4>
+      <a href="/converter-cocina.html">🍳 Cocina</a><a href="/converter-peso.html">⚖️ Peso</a>
+      <a href="/converter-longitud.html">📏 Longitud</a><a href="/converter-velocidad.html">⚡ Velocidad</a>
+    </div>
+    <div class="footer-col"><h4>Legal</h4>
+      <a href="/privacidad.html">Privacidad</a><a href="/aviso-legal.html">Aviso legal</a>
+      <a href="/cookies.html">Cookies</a>
+    </div>
+  </div>
+  <div class="footer-bottom"><span>© ConvYa.</span><span>Resultados orientativos.</span></div>
+</div></footer>
+<div class="share-toast" id="share-toast">¡Copiado!</div>
+
+<script>
+document.getElementById('hamburger').addEventListener('click',()=>document.getElementById('main-nav').classList.toggle('open'));
+
+// Conversion: all values convert to/from l/100km as base
+function toLiters(v, unit) {
+  if (unit === 'l100') return v;
+  if (unit === 'kml') return 100 / v;
+  if (unit === 'mpg_us') return 235.214576 / v;
+  if (unit === 'mpg_uk') return 282.480936 / v;
+}
+function fromLiters(l, unit) {
+  if (unit === 'l100') return l;
+  if (unit === 'kml') return 100 / l;
+  if (unit === 'mpg_us') return 235.214576 / l;
+  if (unit === 'mpg_uk') return 282.480936 / l;
+}
+function fmt(n) {
+  if (isNaN(n) || !isFinite(n) || n <= 0) return '—';
+  return parseFloat(n.toFixed(2)).toString();
+}
+
+const UNIT_LABELS = {
+  l100: 'l/100km', kml: 'km/litro', mpg_us: 'mpg (US)', mpg_uk: 'mpg (UK)'
+};
+
+function doConv(dir) {
+  const vf = document.getElementById('val-from'), vt = document.getElementById('val-to');
+  const uf = document.getElementById('unit-from').value, ut = document.getElementById('unit-to').value;
+  let l100;
+  if (dir === 'from') {
+    const v = parseFloat(vf.value); if (isNaN(v)||v<=0) { vt.value=''; updateEquiv(null); return; }
+    l100 = toLiters(v, uf); vt.value = fmt(fromLiters(l100, ut));
+  } else {
+    const v = parseFloat(vt.value); if (isNaN(v)||v<=0) { vf.value=''; updateEquiv(null); return; }
+    l100 = toLiters(v, ut); vf.value = fmt(fromLiters(l100, uf));
+  }
+  updateEquiv(l100); updateRef(); showEfficiency(l100);
+}
+
+function swapUnits() {
+  const uf=document.getElementById('unit-from'),ut=document.getElementById('unit-to');
+  const vf=document.getElementById('val-from'),vt=document.getElementById('val-to');
+  const t=uf.value;uf.value=ut.value;ut.value=t;const tv=vf.value;vf.value=vt.value;vt.value=tv;doConv('from');
+}
+
+function updateEquiv(l100) {
+  const g = document.getElementById('equiv-grid');
+  if (!l100) { g.innerHTML='<span style="color:var(--text-light);font-size:13px">Introduce un valor.</span>'; return; }
+  g.innerHTML = Object.entries(UNIT_LABELS).map(([u,l]) =>
+    `<div class="equiv-item"><div class="ev-unit">${l}</div><div class="ev-value">${fmt(fromLiters(l100,u))}</div></div>`
+  ).join('');
+}
+
+function updateRef() {
+  const common = [3,4,5,6,7,8,9,10,12,15];
+  const t = document.getElementById('ref-table');
+  t.innerHTML = '<thead><tr><th>l/100km</th><th>km/l</th><th>mpg (US)</th><th>mpg (UK)</th><th>Referencia</th></tr></thead><tbody>' +
+    [[3,'Híbrido enchufable'],[4,'Híbrido muy eficiente'],[5,'Compacto moderno'],[6,'Utilitario mixto'],[7,'Familiar gasolina'],[8,'SUV compacto'],[9,'SUV mediano'],[10,'SUV grande'],[12,'Pick-up / Todoterreno'],[15,'Vehículo clásico']].map(([l,ref]) =>
+      `<tr><td>${l}</td><td>${fmt(100/l)}</td><td>${fmt(235.215/l)}</td><td>${fmt(282.481/l)}</td><td style="font-size:12px;color:var(--text-muted)">${ref}</td></tr>`
+    ).join('') + '</tbody>';
+}
+
+function showEfficiency(l100) {
+  const bar = document.getElementById('efficiency-bar');
+  const txt = document.getElementById('efficiency-text');
+  bar.style.display = 'block';
+  let msg, color;
+  if (l100 <= 4) { msg = '✅ Consumo excelente (≤ 4 l/100km)'; color = '#059669'; }
+  else if (l100 <= 6) { msg = '✅ Consumo eficiente (4–6 l/100km)'; color = '#059669'; }
+  else if (l100 <= 8) { msg = '🟡 Consumo medio (6–8 l/100km)'; color = '#D97706'; }
+  else if (l100 <= 11) { msg = '🟠 Consumo elevado (8–11 l/100km)'; color = '#D97706'; }
+  else { msg = '🔴 Consumo muy alto (> 11 l/100km)'; color = '#DC2626'; }
+  txt.textContent = msg; txt.style.color = color;
+}
+
+function copyResult() { const v=document.getElementById('val-to').value;const u=document.getElementById('unit-to').options[document.getElementById('unit-to').selectedIndex].text;if(!v)return;navigator.clipboard.writeText(v+' '+u).then(()=>showToast()); }
+function copyLink() { navigator.clipboard.writeText(window.location.href).then(()=>showToast('¡Enlace copiado!')); }
+function showToast(m='¡Copiado!') { const t=document.getElementById('share-toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000); }
+function toggleFaq(btn) { const e=btn.getAttribute('aria-expanded')==='true';btn.setAttribute('aria-expanded',!e);btn.nextElementSibling.classList.toggle('open'); }
+
+document.getElementById('val-from').value='6.5';
+doConv('from'); updateRef();
+</script>
+<script src="/cookie-banner.js"></script>
+</body>
+</html>

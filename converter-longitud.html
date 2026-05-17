@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conversor de Longitud — Metros, Pies, Pulgadas, Millas, Km | ConvYa</title>
+  <meta name="description" content="Conversor de longitud gratuito. Convierte metros, centímetros, pulgadas, pies, yardas, kilómetros y millas al instante.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://convya.org/converter-longitud">
+  <meta property="og:title" content="Conversor de Longitud | ConvYa">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://convya.org/og-image.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="style.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="/" class="logo">Conv<span style="color:var(--brand)">Ya</span><span class="logo-dot">.</span></a>
+    <nav id="main-nav">
+      <a href="/converter-cocina.html">🍳 Cocina</a>
+      <a href="/converter-peso.html">⚖️ Peso</a>
+      <a href="/converter-longitud.html" class="active">📏 Longitud</a>
+      <a href="/converter-temperatura.html">🌡️ Temperatura</a>
+      <a href="/converter-volumen.html">💧 Volumen</a>
+      <a href="/converter-area.html">📐 Área</a>
+      <a href="/converter-velocidad.html">⚡ Velocidad</a>
+      <a href="/converter-tiempo.html">⏱️ Tiempo</a>
+      <a href="/converter-digital.html">💾 Digital</a>
+      <a href="/converter-numeros.html">🔢 Números</a>
+    </nav>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</header>
+<main class="page-wrap">
+  <section class="page-hero">
+    <div class="breadcrumb"><a href="/">Inicio</a><span>›</span>Longitud y Distancia</div>
+    <div class="tool-badge">📏 Conversor de longitud</div>
+    <h1 class="tool-title">Conversor de <em>Longitud</em> y Distancia</h1>
+    <p class="tool-subtitle">Convierte metros, centímetros, pulgadas, pies, yardas, kilómetros y millas al instante. Bidireccional.</p>
+  </section>
+  <div class="ad-slot"><!-- AdSense --></div>
+  <div class="conv-card">
+    <div class="conv-row">
+      <div class="conv-input-group">
+        <label>Valor</label>
+        <input type="number" id="val-from" placeholder="1" min="0" oninput="doConv('from')">
+        <select id="unit-from" onchange="doConv('from')" style="margin-top:6px"><option value="m">Metros (m)</option><option value="km">Kilómetros (km)</option><option value="cm" selected>Centímetros (cm)</option><option value="mm">Milímetros (mm)</option><option value="mi">Millas (mi)</option><option value="yd">Yardas (yd)</option><option value="ft">Pies (ft)</option><option value="in">Pulgadas (in)</option><option value="nm_sea">Millas náuticas</option></select>
+      </div>
+      <button class="swap-btn" onclick="swapUnits()">↕</button>
+      <div class="conv-input-group">
+        <label>Resultado</label>
+        <input type="number" id="val-to" placeholder="—" min="0" oninput="doConv('to')">
+        <select id="unit-to" onchange="doConv('from')" style="margin-top:6px"><option value="m">Metros (m)</option><option value="km">Kilómetros (km)</option><option value="cm">Centímetros (cm)</option><option value="mm">Milímetros (mm)</option><option value="mi">Millas (mi)</option><option value="yd">Yardas (yd)</option><option value="ft">Pies (ft)</option><option value="in" selected>Pulgadas (in)</option><option value="nm_sea">Millas náuticas</option></select>
+      </div>
+    </div>
+    <div class="action-row">
+      <button class="btn-copy" onclick="copyResult()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>Copiar resultado</button>
+      <button class="btn-link" onclick="copyLink()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>Copiar enlace</button>
+    </div>
+    <div class="all-equiv"><p class="equiv-title">Todas las equivalencias</p><div class="equiv-grid" id="equiv-grid"></div></div>
+    <div class="ref-table-wrap"><h3>Tabla de referencia</h3><table class="ref-table" id="ref-table"></table></div>
+  </div>
+  <div class="ad-slot"><!-- AdSense --></div>
+  <section class="guide-section"><h2>Guía de conversión de longitud</h2>
+<p>El metro (m) es la unidad base de longitud del SI. Las pulgadas, pies, yardas y millas son unidades del sistema imperial, usadas principalmente en EE. UU.</p>
+<h3>Equivalencias esenciales</h3>
+<div class="formula-box">1 m = 100 cm = 3.2808 ft = 39.37 pulgadas<br>1 km = 1.000 m = 0.6214 millas<br>1 milla = 1.60934 km<br>1 pulgada = 2.54 cm<br>1 pie = 30.48 cm</div>
+<h3>Truco: km a millas</h3>
+<p>Multiplica los km por 0.6 para una estimación rápida. 100 km ≈ 60 millas (exacto: 62.14 mi).</p></section>
+  <section class="faq-section"><h2>Preguntas frecuentes</h2>
+<div class="faq-item"><button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">¿Cuántos centímetros tiene una pulgada?<svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-answer"><p>1 pulgada = exactamente <strong>2.54 cm</strong>. Por eso un televisor de 55 pulgadas mide 55 × 2.54 = 139.7 cm en diagonal.</p></div></div>
+<div class="faq-item"><button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">¿Cuánto mide 6 pies en metros?<svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-answer"><p>6 pies = <strong>1.83 metros</strong> (6 × 0.3048 = 1.8288 m). Es la altura frecuente en perfiles en inglés.</p></div></div>
+</section>
+  <section class="related-section"><h2>Otros conversores</h2><div class="tools-grid">
+<a href="/converter-area.html" class="tool-card"><span class="tc-emoji">📐</span><div class="tc-name">Área</div><div class="tc-desc">m², hectáreas, acres.</div></a>
+<a href="/converter-velocidad.html" class="tool-card"><span class="tc-emoji">⚡</span><div class="tc-name">Velocidad</div><div class="tc-desc">km/h, mph, m/s.</div></a>
+</div></section>
+  <div class="ad-slot"><!-- AdSense --></div>
+</main>
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div><div class="footer-logo">ConvYa.</div><p class="footer-desc">Conversor de unidades gratuito para hispanohablantes.</p></div>
+      <div class="footer-col"><h4>Conversores</h4>
+        <a href="/converter-cocina.html">🍳 Cocina</a><a href="/converter-peso.html">⚖️ Peso</a>
+        <a href="/converter-longitud.html">📏 Longitud</a><a href="/converter-temperatura.html">🌡️ Temp</a>
+        <a href="/converter-volumen.html">💧 Volumen</a><a href="/converter-area.html">📐 Área</a>
+      </div>
+      <div class="footer-col"><h4>Legal</h4>
+        <a href="/privacidad.html">Privacidad</a><a href="/aviso-legal.html">Aviso legal</a>
+        <a href="/cookies.html">Cookies</a><a href="/sobre.html">Sobre ConvYa</a>
+      </div>
+    </div>
+    <div class="footer-bottom"><span>© ConvYa.</span><span>Resultados orientativos.</span></div>
+  </div>
+</footer>
+<div class="share-toast" id="share-toast">¡Copiado!</div>
+<script>
+document.getElementById('hamburger').addEventListener('click',()=>document.getElementById('main-nav').classList.toggle('open'));
+
+const UNITS = {"m":{"label":"Metros (m)","f":1},"km":{"label":"Kilómetros (km)","f":1000},"cm":{"label":"Centímetros (cm)","f":0.01},"mm":{"label":"Milímetros (mm)","f":0.001},"mi":{"label":"Millas (mi)","f":1609.344},"yd":{"label":"Yardas (yd)","f":0.9144},"ft":{"label":"Pies (ft)","f":0.3048},"in":{"label":"Pulgadas (in)","f":0.0254},"nm_sea":{"label":"Millas náuticas","f":1852}};
+function toBase(v,u){return v*UNITS[u].f;}
+function fromBase(b,u){return b/UNITS[u].f;}
+function doConv(dir){
+  const vf=document.getElementById('val-from'),vt=document.getElementById('val-to');
+  const uf=document.getElementById('unit-from').value,ut=document.getElementById('unit-to').value;
+  if(dir==='from'){const v=parseFloat(vf.value);if(isNaN(v)||v<0){vt.value='';updateEquiv(null,uf);return;}
+    const b=toBase(v,uf);vt.value=fmt(fromBase(b,ut));updateEquiv(b,uf);updateRef(b);}
+  else{const v=parseFloat(vt.value);if(isNaN(v)||v<0){vf.value='';updateEquiv(null,ut);return;}
+    const b=toBase(v,ut);vf.value=fmt(fromBase(b,uf));updateEquiv(b,uf);updateRef(b);}
+}
+function swapUnits(){
+  const uf=document.getElementById('unit-from'),ut=document.getElementById('unit-to');
+  const vf=document.getElementById('val-from'),vt=document.getElementById('val-to');
+  const tmp=uf.value;uf.value=ut.value;ut.value=tmp;const tv=vf.value;vf.value=vt.value;vt.value=tv;
+  doConv('from');
+}
+function fmt(n){
+  if(isNaN(n)||!isFinite(n))return '—';
+  if(Math.abs(n)>=1e9)return (n/1e9).toFixed(3)+' ×10⁹';
+  if(Math.abs(n)>=1e6)return (n/1e6).toFixed(3)+' ×10⁶';
+  if(Math.abs(n)>=100)return parseFloat(n.toFixed(2)).toString();
+  if(Math.abs(n)>=10)return parseFloat(n.toFixed(3)).toString();
+  if(Math.abs(n)>=1)return parseFloat(n.toFixed(4)).toString();
+  return parseFloat(n.toFixed(6)).toString();
+}
+function updateEquiv(base,active){
+  const g=document.getElementById('equiv-grid');
+  if(base===null){g.innerHTML='<span style="color:var(--text-light);font-size:13px">Introduce un valor para ver equivalencias.</span>';return;}
+  g.innerHTML=Object.entries(UNITS).map(([u,d])=>{
+    const v=fmt(fromBase(base,u));
+    return `<div class="equiv-item${u===active?' active':''}"><div class="ev-unit">${d.label}</div><div class="ev-value">${v}</div></div>`;
+  }).join('');
+}
+function updateRef(base){
+  const vals=[1, 5, 10, 30, 100, 1000];
+  const keys=Object.keys(UNITS);
+  const t=document.getElementById('ref-table');
+  t.innerHTML='<thead><tr><th>Metros</th>'+keys.map(u=>`<th>${UNITS[u].label}</th>`).join('')+'</tr></thead><tbody>'+
+    vals.map(r=>{const b=toBase(r,'m');return '<tr><td>'+r+'</td>'+keys.map(u=>`<td>${fmt(fromBase(b,u))}</td>`).join('')+'</tr>';}).join('')+'</tbody>';
+}
+document.getElementById('val-from').value='1';doConv('from');
+function copyResult(){const v=document.getElementById('val-to').value;const u=document.getElementById('unit-to').options[document.getElementById('unit-to').selectedIndex].text;if(!v)return;navigator.clipboard.writeText(v+' '+u).then(()=>showToast());}
+function copyLink(){navigator.clipboard.writeText(window.location.href).then(()=>showToast('¡Enlace copiado!'));}
+function showToast(m='¡Copiado!'){const t=document.getElementById('share-toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000);}
+function toggleFaq(btn){const e=btn.getAttribute('aria-expanded')==='true';btn.setAttribute('aria-expanded',!e);btn.nextElementSibling.classList.toggle('open');}
+</script>
+<script src="/cookie-banner.js"></script>
+</body>
+</html>
